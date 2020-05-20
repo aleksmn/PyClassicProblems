@@ -1,7 +1,6 @@
-# Формула Лейбница для вычисления числа Пи
-# pi = 4/1 - 4/3 + 4/5 - 4/7 + 4/9 - 4/11...
-
 def calculate_pi(n_terms: int) -> float:
+    """Формула Лейбница для вычисления числа Пи
+    pi = 4/1 - 4/3 + 4/5 - 4/7 + 4/9 - 4/11..."""
     numerator: float = 4.0
     denominator: float = 1.0
     operation: float = 1.0

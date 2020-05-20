@@ -28,12 +28,11 @@ def fib4(n: int) -> int:
     return fib4(n - 1) + fib4(n - 2)  # рекурсивный случай 
 
 
-# Итеративный метод
 def fib5(n: int) -> int:
+    """Итеративный метод"""
     if n == 0: return n
     last: int = 0
     next: int = 1
-
     for _ in range(1, n):
         last, next = next, last + next
     return next
