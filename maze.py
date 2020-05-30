@@ -48,5 +48,27 @@ class Maze:
             output += "".join([c.value for c in row]) + "\n"
         return output
 
+    def goal_test(self, ml: MazeLocation) -> bool:
+        return ml == self.goal
+
+    # 
+    # 
+    def successors(self, ml: MazeLocation) -> List[MazeLocation]:
+        """метод проверяет верхнюю, нижнюю, правую и левую 
+        смежные ячейки по отношению к MazeLocation в Maze, чтобы увидеть
+        есть ли там пустые места в которые можно попасть из ячейки
+        """
+        locations: List[MazeLocation] = []
+        if ml.row + 1 < self._rows and self._grid[ml.row + 1][ml.column] != Cell.BLOCKED:
+            locations.append(MazeLocation(ml.row + 1, ml.column))
+        if ml.row - 1 >= 0 and self._grid[ml.row - 1][ml.column] != Cell.BLOCKED:
+            locations.append(MazeLocation(ml.row - 1, ml.column))
+        if ml.column + 1 < self._columns and self._grid[ml.row][ml.column + 1] != Cell.BLOCKED:
+            locations.append(MazeLocation(ml.row, ml.column + 1))
+        if ml.column - 1 >= 0 and self._grid[ml.row][ml.column - 1] != Cell.BLOCKED:
+            locations.append(MazeLocation(ml.row, ml.column - 1))
+        return locations
+
+
 maze: Maze = Maze()
 print(maze)
